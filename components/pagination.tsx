@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import styles from './index.module.css';
 import { LIMIT } from '@/constants';
 
 type Props = {
@@ -12,18 +11,18 @@ type Props = {
 export default function Pagination({ totalCount, current = 1, basePath = '', q }: Props) {
   const pages = Array.from({ length: Math.ceil(totalCount / LIMIT) }).map((_, i) => i + 1);
   return (
-    <ul className={styles.container}>
+    <div className="join">
       {pages.map((p) => (
-        <li className={styles.list} key={p}>
+        <div key={p}>
           {current !== p ? (
-            <Link href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')} className={styles.item}>
-              {p}
+            <Link href={`${basePath}/p/${p}` + (q ? `?q=${q}` : '')}>
+              <button className="join-item btn">{p}</button>
             </Link>
           ) : (
-            <span className={`${styles.item} ${styles.current}`}>{p}</span>
+            <button className="join-item btn btn-active">{p}</button>
           )}
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 }

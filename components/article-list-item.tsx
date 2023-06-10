@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Article } from '@/libs/microcms';
-import styles from './index.module.css';
-import TagList from '../TagList';
-import PublishedDate from '../Date';
+import TagList from '@/components/tag-list';
+import PublishedDate from '@/components/published-date';
 
 type Props = {
   article: Article;
@@ -11,8 +10,8 @@ type Props = {
 
 export default function ArticleListItem({ article }: Props) {
   return (
-    <li className={styles.list}>
-      <Link href={`/articles/${article.id}`} className={styles.link}>
+    <li className="mb-10">
+      <Link href={`/articles/${article.id}`} className="flex gap-10">
         {article.thumbnail ? (
           <picture>
             <source
@@ -27,26 +26,26 @@ export default function ArticleListItem({ article }: Props) {
             <img
               src={article.thumbnail?.url || `/noimage.png`}
               alt=""
-              className={styles.image}
+              className="h-auto w-60"
               width={article.thumbnail?.width}
               height={article.thumbnail?.height}
             />
           </picture>
         ) : (
           <Image
-            className={styles.image}
+            className="h-auto w-60"
             src="/no-image.png"
             alt="No Image"
             width={1200}
             height={630}
           />
         )}
-        <dl className={styles.content}>
-          <dt className={styles.title}>{article.title}</dt>
+        <dl>
+          <dt className="text-lg md:text-xl font-bold mb-2">{article.title}</dt>
           <dd>
             <TagList tags={article.tags} hasLink={false} />
           </dd>
-          <dd className={styles.date}>
+          <dd>
             <PublishedDate date={article.publishedAt || article.createdAt} />
           </dd>
         </dl>

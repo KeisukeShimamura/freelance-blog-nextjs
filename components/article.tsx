@@ -1,8 +1,7 @@
 import { formatRichText } from '@/libs/utils';
 import { type Article } from '@/libs/microcms';
-import PublishedDate from '../Date';
-import styles from './index.module.css';
-import TagList from '../TagList';
+import PublishedDate from '@/components/published-date';
+import TagList from '@/components/tag-list';
 
 type Props = {
   data: Article;
@@ -10,11 +9,11 @@ type Props = {
 
 export default function Article({ data }: Props) {
   return (
-    <main className={styles.main}>
-      <h1 className={styles.title}>{data.title}</h1>
+    <main className="flex flex-col justify-between items-center">
+      <h1 className="text-2xl mb-5 md:text-3xl md:mb-6 font-bold text-center">{data.title}</h1>
       <TagList tags={data.tags} />
-      <p className={styles.description}>{data.description}</p>
-      <div className={styles.meta}>
+      <p className="text-sm text-center mx-10 my-6">{data.description}</p>
+      <div className="flex items-center mb-16">
         <PublishedDate date={data.publishedAt || data.createdAt} />
       </div>
       <picture>
@@ -30,13 +29,13 @@ export default function Article({ data }: Props) {
         <img
           src={data.thumbnail?.url}
           alt=""
-          className={styles.thumbnail}
+          className="w-full mb-10"
           width={data.thumbnail?.width}
           height={data.thumbnail?.height}
         />
       </picture>
       <div
-        className={styles.content}
+        className="w-full prose"
         dangerouslySetInnerHTML={{
           __html: `${formatRichText(data.content)}`,
         }}

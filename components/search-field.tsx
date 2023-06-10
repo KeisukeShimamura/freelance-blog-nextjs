@@ -2,7 +2,6 @@
 
 import { useCallback, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
-import styles from './index.module.css';
 
 export default function SearchField() {
   const [composing, setComposition] = useState(false);
@@ -20,16 +19,21 @@ export default function SearchField() {
   const searchParams = useSearchParams();
   const defaultQuery = searchParams.get('q') || '';
   return (
-    <input
-      type="search"
-      name="q"
-      ref={inputRef}
-      className={styles.search}
-      placeholder="Search..."
-      onKeyDown={_onEnter}
-      onCompositionStart={startComposition}
-      onCompositionEnd={endComposition}
-      defaultValue={defaultQuery}
-    />
+    <div className="form-control w-full">
+      <label className="label">
+        <span className="label-text">サイト内検索</span>
+      </label>
+      <input
+        type="search"
+        name="q"
+        ref={inputRef}
+        className="input input-bordered w-full rounded-xl bg-search bg-no-repeat bg-[16px] ps-12"
+        placeholder="Search..."
+        onKeyDown={_onEnter}
+        onCompositionStart={startComposition}
+        onCompositionEnd={endComposition}
+        defaultValue={defaultQuery}
+      />
+    </div>
   );
 }

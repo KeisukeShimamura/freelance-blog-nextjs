@@ -1,10 +1,9 @@
-import { getTagList } from '@/libs/microcms';
+import { getCategoryList, getTagList } from '@/libs/microcms';
 import { LIMIT } from '@/constants';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import Nav from '@/components/Nav';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
 import './globals.css';
-import styles from './layout.module.css';
+import Sidebar from '@/components/sidebar';
 
 export const metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
@@ -28,13 +27,18 @@ export default async function RootLayout({ children }: Props) {
   const tags = await getTagList({
     limit: LIMIT,
   });
+  const categories = await getCategoryList({});
   return (
     <html lang="ja">
       <body>
-        <Header />
-        <Nav tags={tags.contents} />
-        <main className={styles.main}>{children}</main>
-        <Footer />
+        <div className="flex flex-col min-h-screen">
+          <Header tags={tags.contents} />
+          <div className="flex-1 container mx-auto flex flex-col lg:flex-row">
+            <main className="w-full">{children}</main>
+            <Sidebar tags={tags.contents} categories={categories.contents} />
+          </div>
+          <Footer />
+        </div>
       </body>
     </html>
   );
