@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { Article } from '@/libs/microcms';
 import TagList from '@/components/tag-list';
 import PublishedDate from '@/components/published-date';
+import CategoryItem from '@/components/category-item';
 
 type Props = {
   article: Article;
@@ -41,6 +42,7 @@ export default function ArticleListItem({ article }: Props) {
           />
         )}
         <dl>
+          <CategoryItem category={article.category!} hasLink={false} />
           <dt className="text-lg md:text-xl font-bold mb-2">{article.title}</dt>
           <dd>
             <TagList tags={article.tags} hasLink={false} />

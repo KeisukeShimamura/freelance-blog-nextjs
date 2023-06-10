@@ -2,6 +2,7 @@ import { formatRichText } from '@/libs/utils';
 import { type Article } from '@/libs/microcms';
 import PublishedDate from '@/components/published-date';
 import TagList from '@/components/tag-list';
+import CategoryItem from '@/components/category-item';
 
 type Props = {
   data: Article;
@@ -11,6 +12,7 @@ export default function Article({ data }: Props) {
   return (
     <main className="flex flex-col justify-between items-center">
       <h1 className="text-2xl mb-5 md:text-3xl md:mb-6 font-bold text-center">{data.title}</h1>
+      <CategoryItem category={data.category!} />
       <TagList tags={data.tags} />
       <p className="text-sm text-center mx-10 my-6">{data.description}</p>
       <div className="flex items-center mb-16">
