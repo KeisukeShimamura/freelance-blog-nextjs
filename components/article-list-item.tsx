@@ -11,30 +11,19 @@ type Props = {
 
 export default function ArticleListItem({ article }: Props) {
   return (
-    <li className="mb-10">
-      <Link href={`/articles/${article.id}`} className="flex gap-10">
+    <article className="mb-10 pb-5 border-b-2 md:border-b-0 border-base-200">
+      <Link href={`/articles/${article.id}`} className="flex flex-col md:flex-row gap-10">
         {article.thumbnail ? (
-          <picture>
-            <source
-              type="image/webp"
-              media="(max-width: 640px)"
-              srcSet={`${article.thumbnail?.url}?fm=webp&w=414 1x, ${article.thumbnail?.url}?fm=webp&w=414&dpr=2 2x`}
-            />
-            <source
-              type="image/webp"
-              srcSet={`${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=126 1x, ${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=126&dpr=2 2x`}
-            />
-            <img
-              src={article.thumbnail?.url || `/noimage.png`}
-              alt=""
-              className="h-auto w-60"
-              width={article.thumbnail?.width}
-              height={article.thumbnail?.height}
-            />
-          </picture>
+          <Image
+            className="w-full md:w-60"
+            src={article.thumbnail?.url || `/noimage.png`}
+            width={1600}
+            height={1200}
+            alt=""
+          />
         ) : (
           <Image
-            className="h-auto w-60"
+            className="w-full md:w-60"
             src="/no-image.png"
             alt="No Image"
             width={1200}
@@ -42,9 +31,9 @@ export default function ArticleListItem({ article }: Props) {
           />
         )}
         <dl>
-          <CategoryItem category={article.category!} hasLink={false} />
-          <dt className="text-lg md:text-xl font-bold mb-2">{article.title}</dt>
-          <dd>
+          <dt className="text-lg md:text-xl font-bold">{article.title}</dt>
+          <dd className="flex gap-6 items-center">
+            <CategoryItem category={article.category!} hasLink={false} />
             <TagList tags={article.tags} hasLink={false} />
           </dd>
           <dd>
@@ -52,6 +41,6 @@ export default function ArticleListItem({ article }: Props) {
           </dd>
         </dl>
       </Link>
-    </li>
+    </article>
   );
 }

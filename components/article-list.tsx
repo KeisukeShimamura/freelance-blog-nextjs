@@ -13,10 +13,10 @@ export default function ArticleList({ articles }: Props) {
     return <p>記事がありません。</p>;
   }
   return (
-    <ul>
+    <section>
       {articles.map((article) => (
         <ArticleListItem key={article.id} article={article} />
       ))}
-    </ul>
+    </section>
   );
 }

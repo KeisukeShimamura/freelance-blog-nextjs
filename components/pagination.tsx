@@ -11,7 +11,7 @@ type Props = {
 export default function Pagination({ totalCount, current = 1, basePath = '', q }: Props) {
   const pages = Array.from({ length: Math.ceil(totalCount / LIMIT) }).map((_, i) => i + 1);
   return (
-    <div className="join">
+    <div className="join w-full justify-center">
       {pages.map((p) => (
         <div key={p}>
           {current !== p ? (

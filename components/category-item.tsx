@@ -9,10 +9,15 @@ type Props = {
 export default function CategoryItem({ category, hasLink = true }: Props) {
   if (hasLink) {
     return (
-      <Link href={`/category/${category.id}`} className="badge badge-primary badge-outline">
+      <Link
+        href={`/category/${category.id}`}
+        className="badge badge-primary badge-outline badge-lg rounded-md"
+      >
         {category.name}
       </Link>
     );
   }
-  return <span className="badge badge-primary badge-outline">{category.name}</span>;
+  return (
+    <span className="badge badge-primary badge-outline badge-lg rounded-md">{category.name}</span>
+  );
 }

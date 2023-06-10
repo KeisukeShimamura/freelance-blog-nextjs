@@ -10,7 +10,7 @@ type Props = {
 
 export default function Sidebar({ tags, categories }: Props) {
   return (
-    <aside className="w-full lg:w-96 lg:ml-3 flex flex-col">
+    <aside className="w-full lg:w-96 mt-16 lg:mt-0 lg:ml-3 flex flex-col">
       <SearchField />
       <h2 className="bg-base-200 font-bold text-xl my-4 p-2">カテゴリー</h2>
       <CategoryList categories={categories} />
