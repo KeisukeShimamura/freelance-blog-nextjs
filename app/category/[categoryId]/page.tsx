@@ -5,22 +5,22 @@ import ArticleList from '@/components/article-list';
 
 type Props = {
   params: {
-    tagId: string;
+    categoryId: string;
   };
 };
 
 export const revalidate = 60;
 
 export default async function Page({ params }: Props) {
-  const { tagId } = params;
+  const { categoryId } = params;
   const data = await getList({
     limit: LIMIT,
-    filters: `tags[contains]${tagId}`,
+    filters: `category[equals]${categoryId}`,
   });
   return (
     <>
       <ArticleList articles={data.contents} />
-      <Pagination totalCount={data.totalCount} basePath={`/tags/${tagId}`} />
+      <Pagination totalCount={data.totalCount} basePath={`/category/${categoryId}`} />
     </>
   );
 }
