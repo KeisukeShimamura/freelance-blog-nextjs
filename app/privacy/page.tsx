@@ -18,7 +18,7 @@ export default async function Page() {
         Google社のデータ収集・処理の仕組みについては、
         <a
           href="http://www.google.com/intl/ja/policies/privacy/partners/"
-          className="link link-primary"
+          className="link link-primary link-hover"
           rel="noopener"
           target={`_blank`}
         >
@@ -35,7 +35,7 @@ export default async function Page() {
       <p className="mb-4">
         <a
           href="https://support.google.com/searchads/answer/2839090?hl=ja&ref_topic=2473095"
-          className="link link-primary"
+          className="link link-primary link-hover"
           rel="noopener"
           target={`_blank`}
         >
@@ -47,7 +47,7 @@ export default async function Page() {
         サイト利用者は下記の
         <a
           href="https://www.google.com/settings/u/0/ads/authenticated?hl=ja"
-          className="link link-primary"
+          className="link link-primary link-hover"
           rel="noopener"
           target={`_blank`}
         >
@@ -56,7 +56,7 @@ export default async function Page() {
         で、インタレスト ベースでの広告掲載に使用される DoubleClick Cookie を無効にできます。また
         <a
           href="http://aboutads.info/"
-          className="link link-primary"
+          className="link link-primary link-hover"
           rel="noopener"
           target={`_blank`}
         >

@@ -8,7 +8,7 @@ module.exports = {
       },
     },
     container: {
-      padding: '2rem',
+      padding: '1rem',
     },
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
