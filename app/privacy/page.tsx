@@ -1,3 +1,5 @@
+import SinglePageH2 from '@/components/single-page-h2';
+
 export const revalidate = 60;
 
 export default async function Page() {
@@ -7,9 +9,7 @@ export default async function Page() {
       <p>
         北海道フリーランス生活（以下「当ブログ」）のプライバシーポリシー・免責事項を次の通り記載します。
       </p>
-      <h2 className="text-xl font-bold mt-12 pb-2 mb-4 border-b-2 border-base-200">
-        アクセス解析ツールについて
-      </h2>
+      <SinglePageH2 text="アクセス解析ツールについて" />
       <p className="mb-4">当ブログでは、Googleアナリティクスによりアクセス情報を解析しています。</p>
       <p className="mb-4">
         アクセス情報の解析にはCookieを使用しています。また、アクセス情報の収集はCookieを無効にすることで拒否できます。
@@ -26,9 +26,7 @@ export default async function Page() {
         </a>
         をご覧ください。
       </p>
-      <h2 className="text-xl font-bold mt-12 pb-2 mb-4 border-b-2 border-base-200">
-        第三者配信の広告配信サービスについて
-      </h2>
+      <SinglePageH2 text="第三者配信の広告配信サービスについて" />
       <p className="mb-4">
         当サイトはGoogle及びGoogleのパートナー（第三者配信事業者）の提供する広告を設置しております。その広告配信にはCookieを使用し、当サイトへの過去のアクセス情報に基づいて広告を配信します。
       </p>
@@ -68,16 +66,12 @@ export default async function Page() {
       <p className="mb-4">
         その他、Googleの広告におけるCookieの取り扱い詳細については、Googleのポリシーと規約ページをご覧ください。
       </p>
-      <h2 className="text-xl font-bold mt-12 pb-2 mb-4 border-b-2 border-base-200">
-        個人情報の利用目的について
-      </h2>
+      <SinglePageH2 text="個人情報の利用目的について" />
       <p className="mb-4">
         当ブログでは、フォームでのお問い合わせの際に、名前やメールアドレスなどの個人情報を入力いただく場合がございます。
         取得した個人情報は、必要な連絡のみに利用させていただくもので、これらの目的以外では利用いたしません。
       </p>
-      <h2 className="text-xl font-bold mt-12 pb-2 mb-4 border-b-2 border-base-200">
-        個人情報の第三者開示について
-      </h2>
+      <SinglePageH2 text="個人情報の第三者開示について" />
       <p className="mb-4">
         取得した個人情報は適切に管理し、以下に該当する場合を除いて第三者に開示することはありません。
       </p>
