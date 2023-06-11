@@ -7,7 +7,7 @@ export default async function Page() {
     <section className="py-16">
       <h1 className="text-center text-2xl font-bold mb-4">プライバシーポリシー</h1>
       <p>
-        北海道フリーランス生活（以下「当ブログ」）のプライバシーポリシー・免責事項を次の通り記載します。
+        北海道フリーランスライフ（以下「当ブログ」）のプライバシーポリシー・免責事項を次の通り記載します。
       </p>
       <SinglePageH2 text="アクセス解析ツールについて" />
       <p className="mb-4">当ブログでは、Googleアナリティクスによりアクセス情報を解析しています。</p>
