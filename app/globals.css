@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.custom-alert-info {
+  @apply alert alert-info;
+}
+.custom-alert-warning {
+  @apply alert alert-warning;
+}
+.custom-alert-error {
+  @apply alert alert-error;
+}
+.custom-alert-success {
+  @apply alert alert-success;
+}
+
 :root {
   --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono',
     'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro', 'Fira Mono', 'Droid Sans Mono',
