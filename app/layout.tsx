@@ -32,7 +32,7 @@ export default async function RootLayout({ children }: Props) {
     <html lang="ja">
       <body>
         <div className="flex flex-col min-h-screen">
-          <Header tags={tags.contents} />
+          <Header tags={tags.contents} categories={categories.contents} />
           <div className="flex-1 container mx-auto max-w-6xl flex flex-col lg:flex-row">
             <main className="w-full">{children}</main>
             <Sidebar tags={tags.contents} categories={categories.contents} />
