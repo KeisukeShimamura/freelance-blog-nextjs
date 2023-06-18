@@ -20,9 +20,6 @@ export default function SearchField() {
   const defaultQuery = searchParams.get('q') || '';
   return (
     <div className="form-control w-full">
-      <label className="label">
-        <span className="label-text">サイト内検索</span>
-      </label>
       <input
         type="search"
         name="q"
