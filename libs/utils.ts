@@ -21,3 +21,18 @@ export const formatRichText = (richText: string) => {
   });
   return $.html();
 };
+
+export const renderToc = (richText: string) => {
+  const $ = cheerio.load(richText);
+  const headings = $('h1, h2, h3').toArray();
+  const toc = headings.map((data) => ({
+    // @ts-ignore
+    text: data.children[0].data,
+    // @ts-ignore
+    id: data.attribs.id,
+    // @ts-ignore
+    name: data.name,
+  }));
+
+  return toc;
+};

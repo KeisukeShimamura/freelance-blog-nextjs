@@ -1,9 +1,10 @@
-import { formatRichText } from '@/libs/utils';
+import { formatRichText, renderToc } from '@/libs/utils';
 import { type Article } from '@/libs/microcms';
 import PublishedDate from '@/components/published-date';
 import TagList from '@/components/tag-list';
 import CategoryItem from '@/components/category-item';
 import Image from 'next/image';
+import TableOfContents from './table-of-contents';
 
 type Props = {
   data: Article;
@@ -27,6 +28,7 @@ export default function Article({ data }: Props) {
         height={1200}
         alt=""
       />
+      <TableOfContents toc={renderToc(data.content)} />
       <div
         className={`w-full prose max-w-none
           prose-h2:border-b-2 prose-h2:border-base-200 prose-h2:pb-2
