@@ -23,7 +23,7 @@ export default function Contact() {
         body: JSON.stringify({
           name: nameRef.current?.value,
           email: emailRef.current?.value,
-          body: bodyRef.current?.value,
+          message: bodyRef.current?.value,
         }),
       });
       console.log('res: ', res);
