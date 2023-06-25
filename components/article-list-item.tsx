@@ -22,12 +22,12 @@ export default function ArticleListItem({ article }: Props) {
             />
             <source
               type="image/webp"
-              srcSet={`${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=126 1x, ${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=126&dpr=2 2x`}
+              srcSet={`${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=180 1x, ${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=180&dpr=2 2x`}
             />
             <img
               src={article.thumbnail?.url || `/noimage.png`}
               alt=""
-              className="h-auto w-60"
+              className="w-full md:w-60"
               width={article.thumbnail?.width}
               height={article.thumbnail?.height}
             />
@@ -41,9 +41,9 @@ export default function ArticleListItem({ article }: Props) {
             height={630}
           />
         )}
-        <dl>
+        <dl className="flex-1">
           <dt className="text-lg md:text-xl font-bold">{article.title}</dt>
-          <dd className="flex gap-6 items-center">
+          <dd className="flex flex-wrap gap-y-0 gap-x-6 items-center my-2">
             <CategoryItem category={article.category!} hasLink={false} />
             <TagList tags={article.tags} hasLink={false} />
           </dd>
