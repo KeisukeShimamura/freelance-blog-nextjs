@@ -14,13 +14,24 @@ export default function ArticleListItem({ article }: Props) {
     <article className="mb-10 pb-5 border-b-2 md:border-b-0 border-base-200">
       <Link href={`/articles/${article.id}`} className="flex flex-col md:flex-row gap-10">
         {article.thumbnail ? (
-          <Image
-            className="w-full md:w-60"
-            src={article.thumbnail?.url || `/noimage.png`}
-            width={1600}
-            height={1200}
-            alt=""
-          />
+          <picture>
+            <source
+              type="image/webp"
+              media="(max-width: 640px)"
+              srcSet={`${article.thumbnail?.url}?fm=webp&w=414 1x, ${article.thumbnail?.url}?fm=webp&w=414&dpr=2 2x`}
+            />
+            <source
+              type="image/webp"
+              srcSet={`${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=126 1x, ${article.thumbnail?.url}?fm=webp&fit=crop&w=240&h=126&dpr=2 2x`}
+            />
+            <img
+              src={article.thumbnail?.url || `/noimage.png`}
+              alt=""
+              className="h-auto w-60"
+              width={article.thumbnail?.width}
+              height={article.thumbnail?.height}
+            />
+          </picture>
         ) : (
           <Image
             className="w-full md:w-60"

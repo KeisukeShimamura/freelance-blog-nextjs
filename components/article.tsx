@@ -3,7 +3,6 @@ import { type Article } from '@/libs/microcms';
 import PublishedDate from '@/components/published-date';
 import TagList from '@/components/tag-list';
 import CategoryItem from '@/components/category-item';
-import Image from 'next/image';
 import TableOfContents from './table-of-contents';
 
 type Props = {
@@ -24,13 +23,24 @@ export default function Article({ data }: Props) {
           updatedDate={data.updatedAt}
         />
       </div>
-      <Image
-        className="w-full md:w-96 mb-10 mx-auto"
-        src={data.thumbnail?.url || `/noimage.png`}
-        width={1600}
-        height={1200}
-        alt=""
-      />
+      <picture>
+        <source
+          type="image/webp"
+          media="(max-width: 640px)"
+          srcSet={`${data.thumbnail?.url}?fm=webp&w=414 1x, ${data.thumbnail?.url}?fm=webp&w=414&dpr=2 2x`}
+        />
+        <source
+          type="image/webp"
+          srcSet={`${data.thumbnail?.url}?fm=webp&fit=crop&w=800&h=600 1x, ${data.thumbnail?.url}?fm=webp&fit=crop&w=800&h=600&dpr=2 2x`}
+        />
+        <img
+          src={data.thumbnail?.url}
+          alt=""
+          className="w-full md:w-96 mb-10 mx-auto"
+          width={data.thumbnail?.width}
+          height={data.thumbnail?.height}
+        />
+      </picture>
       <TableOfContents toc={renderToc(data.content)} />
       <div
         className={`w-full prose max-w-none
