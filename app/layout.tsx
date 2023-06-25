@@ -7,11 +7,13 @@ import Sidebar from '@/components/sidebar';
 
 export const metadata = {
   metadataBase: new URL(process.env.BASE_URL || 'http://localhost:3000'),
-  title: 'Simple Blog',
-  description: 'A simple blog presented by microCMS',
+  title: '北海道フリーランスライフ',
+  description:
+    '北海道札幌市を拠点にフリーランスエンジニアとして生活してます。実際にフリーランスになった経験から得られるフリーランスで知っておくべきことや、エンジニアとして必要な知識などを執筆したり、北海道でのテレワークや生活についての記事も執筆してます。',
   openGraph: {
-    title: 'Simple Blog',
-    description: 'A simple blog presented by microCMS',
+    title: '北海道フリーランスライフ',
+    description:
+      '北海道札幌市を拠点にフリーランスエンジニアとして生活してます。実際にフリーランスになった経験から得られるフリーランスで知っておくべきことや、エンジニアとして必要な知識などを執筆したり、北海道でのテレワークや生活についての記事も執筆してます。',
     images: '/og-image.png',
   },
   alternates: {

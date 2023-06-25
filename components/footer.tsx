@@ -50,7 +50,7 @@ export default function Footer() {
             </svg>
           </a>
         </div>
-        <p>© SIMPLE. All Rights Reserved 2023</p>
+        <p>© 北海道フリーランスライフ. All Rights Reserved 2023</p>
       </div>
     </footer>
   );
