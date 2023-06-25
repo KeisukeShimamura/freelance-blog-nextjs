@@ -1,15 +1,18 @@
-import Image from 'next/image';
 import { formatDate } from '@/libs/utils';
+import { ClockIcon, ArrowPathIcon } from '@heroicons/react/24/outline';
 
 type Props = {
-  date: string;
+  publishedDate: string;
+  updatedDate: string;
 };
 
-export default function PublishedDate({ date }: Props) {
+export default function PublishedDate({ publishedDate, updatedDate }: Props) {
   return (
-    <span className="flex items-center gap-2 my-3 leading-4">
-      <Image src="/clock.svg" alt="" width={16} height={16} priority />
-      {formatDate(date)}
+    <span className="flex text-sm items-center gap-2 my-3 leading-4">
+      <ClockIcon width={16} height={16} />
+      {formatDate(publishedDate)}
+      <ArrowPathIcon width={16} height={16} />
+      {formatDate(updatedDate)}
     </span>
   );
 }

@@ -2,6 +2,7 @@
 
 import { useCallback, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 export default function SearchField() {
   const [composing, setComposition] = useState(false);
@@ -19,7 +20,12 @@ export default function SearchField() {
   const searchParams = useSearchParams();
   const defaultQuery = searchParams.get('q') || '';
   return (
-    <div className="form-control w-full">
+    <div className="form-control w-full relative">
+      <MagnifyingGlassIcon
+        width={20}
+        height={20}
+        className="absolute left-3 top-1/2 -translate-y-1/2 "
+      />
       <input
         type="search"
         name="q"

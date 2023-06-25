@@ -19,7 +19,10 @@ export default function Article({ data }: Props) {
           <CategoryItem category={data.category!} />
           <TagList tags={data.tags} />
         </div>
-        <PublishedDate date={data.publishedAt || data.createdAt} />
+        <PublishedDate
+          publishedDate={data.publishedAt || data.createdAt}
+          updatedDate={data.updatedAt}
+        />
       </div>
       <Image
         className="w-full md:w-96 mb-10 mx-auto"
